@@ -3,12 +3,14 @@ version: '3'
 services:
 
   client:
-    image: muzam1l/mooz
+    image: frixaco/viconf
+    # build: .
     ports:
       - 80:80
 
   server:
-    image: muzam1l/mooz-server
+    image: frixaco/viconf-server
+    # build: ./server
     ports:
       - "5000:5000"
     environment:
