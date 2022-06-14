@@ -5,8 +5,10 @@ export const createSocket = (): Socket => {
     const port = process.env.REACT_APP_SOCKET_PORT
     const { origin } = window.location
     const url = process.env.REACT_APP_SOCKET_URL || `${origin}${port ? `:${port}` : ''}`
+    // eslint-disable-next-line no-console
+    console.log('Connected to API:', url)
     const socket = io(url, {
-        withCredentials: !!process.env.REACT_APP_SOCKET_URL,
+        withCredentials: !process.env.REACT_APP_SOCKET_URL?.includes('localhost'),
     })
 
     // socket.onAny((event, ...args) => {
