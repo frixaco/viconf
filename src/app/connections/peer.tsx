@@ -70,7 +70,7 @@ const PeerComponent: FunctionComponent<PeerProps> = props => {
 
     const peerRef = useRef<Peer.Instance>()
     if (!peerRef.current) {
-        const LEN = (window.moozPeers?.length || 0) + 1
+        const LEN = (window.viconfPeers?.length || 0) + 1
         let bandwidth = MAX_BANDWIDTH / Math.sqrt(LEN)
         if (bandwidth < MIN_BANDWIDTH) bandwidth = MIN_BANDWIDTH
         peerRef.current = new Peer({
@@ -82,14 +82,14 @@ const PeerComponent: FunctionComponent<PeerProps> = props => {
 
     const saveInstance = () => {
         const peer = peerRef.current as Peer.Instance
-        const moozPeer: MoozPeer = { peer, partnerId }
-        if (!window.moozPeers) window.moozPeers = [moozPeer]
+        const viconfPeer: MoozPeer = { peer, partnerId }
+        if (!window.viconfPeers) window.viconfPeers = [viconfPeer]
 
         // remove old copy
-        window.moozPeers = window.moozPeers.filter(p => p.partnerId !== partnerId)
+        window.viconfPeers = window.viconfPeers.filter(p => p.partnerId !== partnerId)
 
         // update
-        window.moozPeers.push(moozPeer)
+        window.viconfPeers.push(viconfPeer)
     }
     saveInstance()
 
@@ -175,7 +175,7 @@ const PeerComponent: FunctionComponent<PeerProps> = props => {
     // Just to make sure that every track is loaded
     const onTrack = useCallback(
         (track: MediaStreamTrack, stream: MediaStream) => {
-            const pr = window.moozPeers?.find(p => p.partnerId === partnerId)?.peer as
+            const pr = window.viconfPeers?.find(p => p.partnerId === partnerId)?.peer as
                 | PeerInternals
                 | undefined
 

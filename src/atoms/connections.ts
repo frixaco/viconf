@@ -166,8 +166,8 @@ export const removeConnectionsSelector = selector<Connection[]>({
         )
 
         // remove those peers
-        if (window.moozPeers) {
-            window.moozPeers = window.moozPeers.filter(
+        if (window.viconfPeers) {
+            window.viconfPeers = window.viconfPeers.filter(
                 p => !newVal.find(v => v.partnerId === p.partnerId),
             )
         }

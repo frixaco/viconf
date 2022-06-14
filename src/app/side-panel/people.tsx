@@ -28,7 +28,7 @@ const PersonComponent: FunctionComponent<{ item?: Connection; index?: number }> 
     useEffect(() => {
         const onConnected = () => setPresence(PersonaPresence.online)
         const onClose = () => setPresence(PersonaPresence.offline)
-        const { peer } = window.moozPeers?.find(p => p.partnerId === item?.partnerId) || {}
+        const { peer } = window.viconfPeers?.find(p => p.partnerId === item?.partnerId) || {}
         peer?.on('connect', onConnected)
         peer?.on('close', onClose)
         return () => {
@@ -125,13 +125,10 @@ const PeoplePanel: FunctionComponent = () => {
     const aloneToast = useRef<ReactText>()
     useEffect(() => {
         if (!connections.length && !aloneToast.current)
-            aloneToast.current = toast(
-                'You are curently alone 💩, make some friends and then invite them!',
-                {
-                    autoClose: Timeout.PERSIST,
-                    type: ToastType.info,
-                },
-            )
+            aloneToast.current = toast('You are curently alone, invite some people!', {
+                autoClose: Timeout.PERSIST,
+                type: ToastType.info,
+            })
         else if (connections.length && aloneToast.current) {
             if (aloneToast.current) {
                 dismissToast(aloneToast.current)

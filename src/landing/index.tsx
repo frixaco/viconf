@@ -35,7 +35,7 @@ const Landing: FunctionComponent = () => {
         <Stack className={container} horizontalAlign="center">
             <Stack.Item className={containerInner}>
                 <Text className={heading} variant="superLarge">
-                    Welcome to mooz
+                    Welcome to Viconf
                 </Text>
                 <Stack horizontalAlign="center" horizontal wrap>
                     <Stack.Item className={mr4} grow>

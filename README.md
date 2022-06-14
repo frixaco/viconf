@@ -43,15 +43,15 @@ Following commands builds these images respectively.
 
 _cd %project-root%_
 
-`docker build --build-arg SOCKET_PORT=5000 --tag mooz .`
+`docker build --build-arg SOCKET_PORT=5000 --tag viconf .`
 
-`docker build --tag mooz-server ./server`
+`docker build --tag viconf-server ./server`
 
 ### Run containers
 
-`docker run -d --rm -p 80:80 --name client mooz`
+`docker run -d --rm -p 80:80 --name client viconf`
 
-`docker run -d --rm -p 5000:5000 -e "PORT=5000" --name server mooz-server`
+`docker run -d --rm -p 5000:5000 -e "PORT=5000" --name server viconf-server`
 
 _If you are gonna have server and client on different domains, pass `ALLOW_ORIGIN` env varibale to server and `REACT_APP_SOCKET_URL` to client._
 

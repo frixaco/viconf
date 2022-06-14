@@ -29,7 +29,7 @@ export const addMessageSelector = selector<Message[]>({
         if (newVal instanceof DefaultValue) throw Error('Nope')
         const messages = get(messagesState)
         set(messagesState, messages.concat(newVal))
-        const peers = window.moozPeers || []
+        const peers = window.viconfPeers || []
         newVal.forEach(message => {
             if (message.mine) {
                 peers

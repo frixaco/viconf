@@ -9,6 +9,6 @@ export interface MoozPeer {
 
 declare global {
     interface Window {
-        moozPeers: MoozPeer[] | undefined
+        viconfPeers: MoozPeer[] | undefined
     }
 }

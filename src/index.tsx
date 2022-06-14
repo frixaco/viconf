@@ -21,9 +21,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import useAbort from './utils/hooks/use-abort'
 
 // enforce https in production
-if (window.location.protocol === 'http:' && process.env.NODE_ENV === 'production') {
-    window.location.href = `https://${window.location.href.slice(7)}`
-}
+// if (window.location.protocol === 'http:' && process.env.NODE_ENV === 'production') {
+//     window.location.href = `https://${window.location.href.slice(7)}`
+// }
 
 const AppImport = import('./app') // preloading
 const App = lazy(() => AppImport)
@@ -46,7 +46,7 @@ const Eagle: FunctionComponent = () => {
         // }
         const onRoomJoined = (r: Room) => {
             const name = r.name || `by ${r.created_by}` || `with id ${r.id}`
-            window.history.pushState({}, 'Mooz', `/room/${r.id}`)
+            window.history.pushState({}, 'Viconf', `/room/${r.id}`)
             setRoom(r)
             toast(`Joined room ${name}`)
         }

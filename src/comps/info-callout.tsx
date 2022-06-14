@@ -66,17 +66,17 @@ const MyCallout: FunctionComponent<ICalloutProps & MyCalloutProps> = ({ showFoot
             {showFooter && (
                 <div className={callout.footer}>
                     <span>
-                        Mooz by{' '}
+                        Viconf by{' '}
                         <Link
-                            href="https://github.com/muzam1l"
+                            href="https://github.com/frixaco"
                             target="_blank"
                             rel="nofollow noreferrer noopener"
                         >
-                            muzam1l
+                            frixaco
                         </Link>
                     </span>
                     <Link
-                        href="https://github.com/muzam1l/mooz"
+                        href="https://github.com/frixaco/viconf"
                         target="_blank"
                         rel="nofollow noreferrer noopener"
                     >
